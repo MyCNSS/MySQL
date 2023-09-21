@@ -1,4 +1,4 @@
-Télécharger le fichier SQL **mini_sas_gestion_bibliothèque.sql**, ouvrir le et chercher **la ligne 85** qui contient
+Télécharger le fichier SQL **MaCNSS.sql**, ouvrir le et chercher **la ligne 85** qui contient
 
 ```sql
 INSERT INTO `admin` (`id`, `email`, `password`, `nom`, `prenom`) VALUES ('0', 'USEREMAIL', 'HASHPASSWORD', 'NOM', 'PRENOM');
