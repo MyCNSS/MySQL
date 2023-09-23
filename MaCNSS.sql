@@ -16,7 +16,8 @@ CREATE TABLE Admin (
 CREATE TABLE Patient (
                          matrecule varchar(255) UNIQUE KEY,
                          nom_P varchar(255),
-                         prenom_P varchar(255)
+                         prenom_P varchar(255),
+                         email varchar(255)
 );
 
 CREATE TABLE Agent (
@@ -79,8 +80,8 @@ ALTER TABLE `dossier` ADD  CONSTRAINT `id_medicament` FOREIGN KEY (`id_medicamen
 ALTER TABLE `dossier` ADD  CONSTRAINT `id_consultation_medicale` FOREIGN KEY (`id_consultation_medicale`) REFERENCES `consultationmedicale`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE `medicament` ADD CONSTRAINT `id_categorie` FOREIGN KEY (`id_categorie`) REFERENCES `categorie`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE `consultationmedicale` ADD CONSTRAINT ` id_type_consultation_medicale` FOREIGN KEY (`id_type_consultation_medicale`) REFERENCES `typeconsultation`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE `dossier` CHANGE `id` `id` INT(11) NULL DEFAULT NULL AUTO_INCREMENT;
-ALTER TABLE `patient` ADD `email` VARCHAR(255) NOT NULL AFTER `prenom_P`;
+ALTER TABLE `dossier` CHANGE `id` `id` INT(11) NULL DEFAULT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
+ALTER TABLE `patient` ADD UNIQUE(`email`);
 
 -- Insert Admin
 INSERT INTO `admin` (`id`, `email`, `password`, `nom`, `prenom`) VALUES ('0', 'USEREMAIL', 'HASHPASSWORD', 'NOM', 'PRENOM');
@@ -98,4 +99,4 @@ INSERT INTO `categorie` (`id`, `prix_reduction`, `nom_C`) VALUES (NULL, '0.6', '
 INSERT INTO `medicament` (`id`, `nom_m`, `prix_medicament`, `id_categorie`) VALUES (NULL, 'Acétaminophène (paracétamol)', '8', '1'), (NULL, 'Amoxicilline', '34.60', '2'), (NULL, 'Simvastatine', '37.10', '3'), (NULL, 'Lipitor (atorvastatine)', '250', '4');
 
 -- Insert Patient
-INSERT INTO `patient` (`matrecule`, `nom_P`, `prenom_P`) VALUES ('BouMar2022', 'Bouchettoy', 'Marouane'), ('ElHakAmin2022', 'El Hakik', 'Amine'), ('SbaMyYouFor', 'Sbai', 'My Youssef');
+INSERT INTO `patient` (`matrecule`, `nom_P`, `prenom_P`, `email`) VALUES('BouMar2022', 'Bouchettoy', 'Marouane', 'uanemaro216@gmail.com'),('SbaMyYouFor', 'Sbai', 'My Youssef', 'uanemaro350@gmail.com'),('ElHakAmin2022', 'El Hakik', 'Amine', 'uanemaro89@gmail.com');
