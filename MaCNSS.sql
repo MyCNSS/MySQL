@@ -80,6 +80,7 @@ ALTER TABLE `dossier` ADD  CONSTRAINT `id_consultation_medicale` FOREIGN KEY (`i
 ALTER TABLE `medicament` ADD CONSTRAINT `id_categorie` FOREIGN KEY (`id_categorie`) REFERENCES `categorie`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE `consultationmedicale` ADD CONSTRAINT ` id_type_consultation_medicale` FOREIGN KEY (`id_type_consultation_medicale`) REFERENCES `typeconsultation`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE `dossier` CHANGE `id` `id` INT(11) NULL DEFAULT NULL AUTO_INCREMENT;
+ALTER TABLE `patient` ADD `email` VARCHAR(255) NOT NULL AFTER `prenom_P`;
 
 -- Insert Admin
 INSERT INTO `admin` (`id`, `email`, `password`, `nom`, `prenom`) VALUES ('0', 'USEREMAIL', 'HASHPASSWORD', 'NOM', 'PRENOM');
